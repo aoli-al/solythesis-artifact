@@ -1,0 +1,21 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "semicolon": [true, "never"],
+        "interface-name": [true, "never-prefix"],
+        "no-console": false,
+        "object-literal-sort-keys": false,
+        "ordered-imports": false
+    },
+    "rulesDirectory": [],
+    "linterOptions": {
+        "exclude": [
+            "src/antlr/**"
+        ]
+    }
+
+}
