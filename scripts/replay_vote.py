@@ -12,7 +12,6 @@ GAS_VOTE = 49840
 
 parser = argparse.ArgumentParser()
 parser.add_argument('endpoint')
-parser.add_argument('csv')
 parser.add_argument('path')
 parser.add_argument('key1')
 parser.add_argument('key2')

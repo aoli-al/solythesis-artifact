@@ -7,7 +7,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('endpoint')
-parser.add_argument('csv')
+parser.add_argument('function')
 parser.add_argument('path')
 parser.add_argument('key1')
 parser.add_argument('key2')
@@ -15,7 +15,7 @@ parser.add_argument("--pow", dest="pow", action="store_true")
 parser.add_argument("--progress-bar", dest="progress_bar", action="store_true")
 args = parser.parse_args()
 
-if 'transfer' in args.csv:
+if 'transfer' in args.function:
     NUM_OF_CONTRACT = 155
 else:
     NUM_OF_CONTRACT = 115
@@ -38,7 +38,7 @@ def next_address():
 
 
 def generate(idx, k):
-    if 'transfer' in sys.argv[2]:
+    if 'transfer' in args.function:
         return bench.call_contract_function(a[0][0], 'transfer',
                                             [next(next_address()), 1],
                                             bec_addr[k], a[0][1])
