@@ -3,6 +3,7 @@
 import os
 import glob
 import inquirer
+import subprocess
 
 F_DIR = os.path.dirname(__file__)
 CONTRACT_DIR = os.path.join(F_DIR, 'contracts') 
@@ -39,6 +40,17 @@ suffix_mapping = {
 
 contract = configs['contract'] + suffix_mapping[configs['type']] + ".sol"
 script = 'replay_' + configs['contract'].split("_")[-1].lower() + '.py'
+
+if 'Transaction' in configs['exp']:
+    shell = F_DIR + '/bash/run_tps_exp.sh'
+else:
+    shell = F_DIR + '/bash/run_tps_exp.sh'
+
+
+
+subprocess.call(['bash', shell, contract, script, configs['blocks']])
+
+
 print(contract)
 print(script)
 
