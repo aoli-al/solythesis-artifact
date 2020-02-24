@@ -42,5 +42,6 @@
     "include": [
       "src/*.js"
     ]
-  }
+  },
+  "dependencies": {}
 }

@@ -25,8 +25,12 @@
     "@types/graphlib-dot": "^0.6.1",
     "@types/lodash": "^4.14.132",
     "antlr4ts": "^0.5.0-alpha.3",
+    "c3-linearization": "^0.3.0",
     "graphlib-dot": "^0.6.2",
+    "graphviz": "0.0.9",
     "lodash": "^4.17.11",
+    "sha1-file": "^1.0.4",
+    "treeify": "^1.1.0",
     "tslint": "^5.16.0"
   }
 }
