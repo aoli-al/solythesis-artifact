@@ -5,7 +5,7 @@ import glob
 import inquirer
 import subprocess
 
-F_DIR = os.path.dirname(__file__)
+F_DIR = os.path.dirname(os.path.realpath(__file__))
 CONTRACT_DIR = os.path.join(F_DIR, 'contracts') 
 SCRIPT_DIR = os.path.join(F_DIR, 'scripts')
 
@@ -46,6 +46,7 @@ if 'Transaction' in configs['exp']:
 else:
     shell = F_DIR + '/bash/run_tps_exp.sh'
 
+print(shell)
 
 
 subprocess.call(['bash', shell, contract, script, configs['blocks']])

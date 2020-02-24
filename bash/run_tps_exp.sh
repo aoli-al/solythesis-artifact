@@ -6,12 +6,12 @@ WORKSPACE="/home/ubuntu/results"
 
 cd ~
 
-echo "Create work space ~/results \n"
+echo "Create work space ~/results"
 
 rm -rf $WORKSPACE
 mkdir $WORKSPACE
 
-echo "Copy fullnode folder... (this may take couple minutes)\n"
+echo "Copy fullnode folder... (this may take couple minutes)"
 
 cp -r ~/fullnode $WORKSPACE/fullnode
 cp -r ~/fullnode $WORKSPACE/import
