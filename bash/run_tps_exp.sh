@@ -13,8 +13,8 @@ mkdir $WORKSPACE
 
 echo "Copy fullnode folder... (this may take couple minutes)"
 
-cp -r ~/fullnode $WORKSPACE/fullnode
-cp -r ~/fullnode $WORKSPACE/import
+rsync -avh --info=progress2 ~/fullnode $WORKSPACE/fullnode
+rsync -avh --info=progress2 ~/fullnode $WORKSPACE/import
 
 $BASE/parity/target/release/parity --accounts-refresh=0 \
    --fast-unlock --no-warp --no-consensus --config \

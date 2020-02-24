@@ -44,7 +44,7 @@ script = 'replay_' + configs['contract'].split("_")[-1].lower() + '.py'
 if 'Transaction' in configs['exp']:
     shell = F_DIR + '/bash/run_tps_exp.sh'
 else:
-    shell = F_DIR + '/bash/run_tps_exp.sh'
+    shell = F_DIR + '/bash/run_cpu_exp.sh'
 
 print(shell)
 
@@ -52,8 +52,7 @@ print(shell)
 subprocess.call(['bash', shell, contract, script, configs['blocks']])
 
 
-print(contract)
-print(script)
+print("Done! Please check the raw output in ~/results folder.")
 
 
 
