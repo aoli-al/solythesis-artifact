@@ -2,7 +2,7 @@
 
 BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd )"
 WORKSPACE="/home/ubuntu/results"
-F_NAME = "$(basename -- $1)"
+F_NAME="$(basename -- $1)"
 
 
 cd ~
@@ -14,21 +14,21 @@ mkdir $WORKSPACE
 
 echo "Copy fullnode folder... (this may take couple minutes)"
 
-rsync -avh --progress ~/fullnode $WORKSPACE/fullnode
-rsync -avh --progress ~/fullnode $WORKSPACE/import
+rsync -avh --delete --info=progress2 ~/fullnode/ $WORKSPACE/fullnode
+rsync -avh --delete --info=progress2 ~/fullnode/ $WORKSPACE/import
 
 $BASE/parity/target/release/parity --accounts-refresh=0 \
    --fast-unlock --no-warp --no-consensus --config \
    $BASE/parity/configs/config.dev-insecure.toml \
    --chain $BASE/parity/configs/foundation.json  \
-   --base-path=$WORKSPACE/fullnode --logging=error \
+   --base-path=/home/ubuntu/fullnode --logging=error \
    --unsafe-expose --jsonrpc-cors=all --no-discovery  --cache-size 8096 &
 
 parity_pid=$!
 
-sleep 30
+sleep 10
 
-~/.local/bin/psrecord $parity_pid --interval 0.1 --log $WORKSPACE/$F_NAME-$3.txt &
+~/.local/bin/psrecord $parity_pid --interval 0.1 --log $WORKSPACE/$F_NAME-$3.cpu.txt &
 psrecord = $!
 
 
@@ -56,4 +56,4 @@ $BASE/parity/target/release/parity export blocks \
 
 $BASE/parity/target/release/parity import $WORKSPACE/$F_NAME-$3-mainchain.bin\
   --config $BASE/parity/configs/config.dev-insecure.toml  --chain $BASE/parity/configs/foundation.json \
-  --base-path=$WORKSPACE/import --log-file=$WORKSPACE/parity.log --logging=info > $WORKSPACE/$F_NAME-$3.db.txt
+  --base-path=$WORKSPACE/import --logging=error > $WORKSPACE/$F_NAME-$3.db.txt

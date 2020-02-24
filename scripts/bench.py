@@ -111,7 +111,7 @@ class Bench:
 
     def compile_contract(self, path, contract_name):
         compiled_sol = compile_files([path], output_values=ALL_OUTPUT_VALUES, optimize=True, optimize_runs=200,
-                                     solc_binary=os.path.expanduser("~/solidity/build/solc/solc"))
+                                     solc_binary=os.path.expanduser("/home/ubuntu/.solcx/solc"))
         contract = compiled_sol[path + ':' + contract_name]
         return self.w3.eth.contract(abi=contract['abi'], bytecode=contract['bin'])
 

@@ -25,6 +25,3 @@ hosts = ["all"]
 [websockets]
 apis = ["all"]
 
-[misc]
-logging = "info"
-log_file = "./parity.log"

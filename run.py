@@ -38,8 +38,8 @@ suffix_mapping = {
     "Baseline": "_baseline"
 }
 
-contract = configs['contract'] + suffix_mapping[configs['type']] + ".sol"
-script = 'replay_' + configs['contract'].split("_")[-1].lower() + '.py'
+contract = os.path.join(CONTRACT_DIR, configs['contract'] + suffix_mapping[configs['type']] + ".sol")
+script = os.path.join(SCRIPT_DIR, 'replay_' + configs['contract'].split("_")[-1].lower() + '.py')
 
 if 'Transaction' in configs['exp']:
     shell = F_DIR + '/bash/run_tps_exp.sh'
