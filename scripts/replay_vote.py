@@ -12,6 +12,7 @@ GAS_VOTE = 49840
 
 parser = argparse.ArgumentParser()
 parser.add_argument('endpoint')
+parser.add_argument('iter', type=int)
 parser.add_argument('path')
 parser.add_argument('key1')
 parser.add_argument('key2')
@@ -24,7 +25,7 @@ contract_creator = bench.import_account(args.key1)
 NUM_OF_CONTRACT = 150
 OPTIONS = 5
 USERS = 5
-ITER = 100
+ITER = args.iter
 
 vote_addr = [bench.call_contract_function(contract_creator[0], 'constructor', [], private_key=contract_creator[1],
                                           wait=True)

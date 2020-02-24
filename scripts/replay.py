@@ -4,10 +4,9 @@ import progressbar
 import argparse
 from bench import Bench
 
-ITER = 1000
-
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('endpoint')
+parser.add_argument('iter', type=int)
 parser.add_argument('csv')
 parser.add_argument('path')
 parser.add_argument('key1')
@@ -15,6 +14,8 @@ parser.add_argument('key2')
 parser.add_argument("--pow", dest="pow", action="store_true")
 parser.add_argument("--progress-bar", dest="progress_bar", action="store_true")
 args = parser.parse_args()
+
+ITER = args.iter
 
 if 'erc20' in args.csv:
     contract_name = 'BecToken'
