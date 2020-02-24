@@ -6,6 +6,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('endpoint')
+parser.add_argument('iter', type=int)
 parser.add_argument('path')
 parser.add_argument('key1')
 parser.add_argument('key2')
@@ -39,7 +40,7 @@ for i in range(USERS):
 print(users)
 bench.wait_for_result(result)
 
-ITER = 1000
+ITER = args.iter
 
 bar = progressbar.ProgressBar(maxval=ITER,
                               widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])

@@ -7,6 +7,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('endpoint')
+parser.add_argument('iter', type=int)
 parser.add_argument('path')
 parser.add_argument('key1')
 parser.add_argument('key2')
@@ -24,7 +25,7 @@ bec_addr = [bench.call_contract_function(a[0][0], 'constructor', [10000000000000
 bec_addr = [bench.wait_for_result(x, gen_pow=False).contractAddress for x in bec_addr]
 
 count = 0
-ITER = 500
+ITER = args.iter
 
 addr = 0
 def next_address():
