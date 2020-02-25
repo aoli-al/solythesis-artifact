@@ -1,3 +1,12 @@
+## Start
+
+To evaluate Solythesis, please download our pre-configured [VM image](./) and [VirtualBox](https://www.virtualbox.org/). 
+
+
+
+
+## Experiments
+
 - To use solythesis compiler, go to `solythesis` folder and read the `README.md` file. 
 
 - To reproduce our experiments run 
