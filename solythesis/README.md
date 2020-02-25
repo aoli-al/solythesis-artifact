@@ -1,4 +1,4 @@
-# Solythesis: Secure Smart Contract on the Fly
+# Solythesis: Securing Smart Contract with Runtime Validation
 
 Solythesis is a novel runtime validation framework for Ethereum smart contracts that works as a source to source Solidity compiler and detects errors at runtime. Solythesis generates an instrumented smart contract from a set of invariants and rejects transactions that violate the invariants.
 
