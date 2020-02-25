@@ -7,11 +7,6 @@ F_NAME="$(basename -- $1)"
 
 cd ~
 
-echo "Create work space ~/results"
-
-rm -rf $WORKSPACE
-mkdir $WORKSPACE
-
 echo "Copy fullnode folder... (this may take couple minutes)"
 
 rsync -avh --delete --info=progress2 ~/fullnode/ ~/fullnode
