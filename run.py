@@ -6,6 +6,7 @@ import inquirer
 import subprocess
 import pandas as pd
 import numpy as np
+import re
 
 F_DIR = os.path.dirname(os.path.realpath(__file__))
 CONTRACT_DIR = os.path.join(F_DIR, 'contracts') 
