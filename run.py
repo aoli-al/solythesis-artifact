@@ -18,7 +18,7 @@ questions =  [
                   choices=candidates
                   ),
     inquirer.List('type', 
-                  message='Which type of contract to deploy?',
+                  message='Which type of Instrumentation?',
                   choices=['Origin', 'Solythesis', 'Baseline']
                   ),
     inquirer.List("exp", message='Which type of experiment to run?', 
@@ -52,7 +52,15 @@ print(shell)
 subprocess.call(['bash', shell, contract, script, configs['blocks']])
 
 
-print("Done! Please check the raw output in ~/results folder.")
+print("Done!")
+print("Experiment: " + configs['exp'])
+print("Contract: " + configs['contract'])
+print("Instrumentation Type: " + configs['type'])
+
+if 'Transaction' in configs['exp']:
+    print("TPS: " + )
+else:
+    shell = F_DIR + '/bash/run_cpu_exp.sh'
 
 
 
