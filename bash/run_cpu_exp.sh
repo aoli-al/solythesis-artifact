@@ -14,8 +14,8 @@ mkdir $WORKSPACE
 
 echo "Copy fullnode folder... (this may take couple minutes)"
 
-rsync -avh --delete --info=progress2 ~/fullnode/ $WORKSPACE/fullnode
-rsync -avh --delete --info=progress2 ~/fullnode/ $WORKSPACE/import
+rsync -avh --delete --info=progress2 ~/fullnode/ ~/fullnode
+rsync -avh --delete --info=progress2 ~/fullnode/ ~/import
 
 $BASE/parity/target/release/parity --accounts-refresh=0 \
    --fast-unlock --no-warp --no-consensus --config \
@@ -29,16 +29,16 @@ parity_pid=$!
 sleep 10
 
 ~/.local/bin/psrecord $parity_pid --interval 0.1 --log $WORKSPACE/$F_NAME-$3.cpu.txt &
-psrecord = $!
+psrecord=$!
 
 
-python3 $2 $WORKSPACE/fullnode/jsonrpc.ipc $3 \
+python3 $2 /home/ubuntu/fullnode/jsonrpc.ipc $3 \
   $1 $BASE/scripts/keys/leo123leo987 $BASE/scripts/keys/leo123leo456 &
 replay=$!
 
 sleep 1
 
-python3 $BASE/scripts/miner.py $WORKSPACE/fullnode/jsonrpc.ipc &
+python3 $BASE/scripts/miner.py /home/ubuntu/fullnode/jsonrpc.ipc &
 miner=$!
 
 wait $replay
@@ -52,8 +52,8 @@ killall -9 parity
 
 $BASE/parity/target/release/parity export blocks \
   --config $BASE/parity/configs/config.dev-insecure.toml  --chain $BASE/parity/configs/foundation.json \
- --base-path=$WORKSPACE/fullnode $WORKSPACE/$F_NAME-$3-mainchain.bin  --from 5052259
+ --base-path=/home/ubuntu/fullnode $WORKSPACE/$F_NAME-$3-mainchain.bin  --from 5052259
 
 $BASE/parity/target/release/parity import $WORKSPACE/$F_NAME-$3-mainchain.bin\
   --config $BASE/parity/configs/config.dev-insecure.toml  --chain $BASE/parity/configs/foundation.json \
-  --base-path=$WORKSPACE/import --logging=error > $WORKSPACE/$F_NAME-$3.db.txt
+  --base-path=/home/ubuntu/import --logging=error > $WORKSPACE/$F_NAME-$3.db.txt

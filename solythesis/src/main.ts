@@ -82,6 +82,5 @@ function generate(contractPath: string, constraintPath: string,
 
 generate(process.argv[2], process.argv[3], "Solythesis_baseline", false, false, true)
 generate(process.argv[2], process.argv[3], "Solythesis", true, true)
-generate(process.argv[2], process.argv[3], "Solythesis_no_optimization", false, false)
 
 console.log("finished")
