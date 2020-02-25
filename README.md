@@ -19,7 +19,28 @@
 
 ## Experiments
 
-- To use solythesis compiler, go to `solythesis` folder and read the `README.md` file.
+### Generate Instrumented Contracts
+
+To generate instrumented contracts, you need to use Solythesis compiler.
+
+```
+cd solythesis
+node lib/src/main.js PATH_TO_CONTRACT PATH_TO_CONSTRAINT
+```
+
+for example, to generate instrumented voting contract in
+Figure 5.
+
+```
+node lib/src/main.js ./contracts/ERC1202_VOTE.sol ./contracts/ERC1202_VOTE_constraints.txt
+```
+
+Solythesis will generate two instrumented Vote contracts in `./contracts` folder:
+
+- `ERC1202_VOTE_Solythesis_baseline.sol`: the secured smart contract using baseline instrumentation technique.
+- `ERC1202_VOTE_Solythesis.sol`: the secured smart contract using delta update. Note the optimizations described in
+Section 5 are also enabled.
+
 
 - To reproduce our experiments run
 
