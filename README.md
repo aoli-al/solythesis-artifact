@@ -32,7 +32,8 @@
 
   - The statics will be shown after the script finishes.
 
-<script id="asciicast-YlqfCidADXBNoV2T9ouUAcrgf" src="https://asciinema.org/a/YlqfCidADXBNoV2T9ouUAcrgf.js" async></script>
+  [![asciicast](https://asciinema.org/a/YlqfCidADXBNoV2T9ouUAcrgf.svg)](https://asciinema.org/a/YlqfCidADXBNoV2T9ouUAcrgf)
+
 
 
 ## Caveats

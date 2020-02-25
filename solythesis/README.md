@@ -12,7 +12,10 @@ For example, to generate secured contract for BEC token, you pass the source cod
 node lib/src/main.js ./contracts/ERC20_BEC.sol ./contracts/ERC20_BEC_constraints.txt
 ```
 
-Solythesis will generate two solidity source programs in the same folder as ERC20_BEC.sol: 
+Solythesis will generate two solidity source programs in the same folder as ERC20_BEC.sol:
 
-- `ERC20_BEC_Solythesis_baseline.sol`: the secured smart contract using baseline instrumentation technique. 
+- `ERC20_BEC_Solythesis_baseline.sol`: the secured smart contract using baseline instrumentation technique.
 - `ERC20_BEC_Solythesis.sol`: the secured smart contract using delta update.
+
+
+[![asciicast](https://asciinema.org/a/mHimX89JzZ0Cz7hGAhULFa4gH.svg)](https://asciinema.org/a/mHimX89JzZ0Cz7hGAhULFa4gH)
