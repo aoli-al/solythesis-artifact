@@ -1,17 +1,40 @@
 ## Start
 
-To evaluate Solythesis, please download our pre-configured [VM image](./) and [VirtualBox](https://www.virtualbox.org/). 
+- To evaluate Solythesis, please download our pre-configured [VM image](./) and [VirtualBox](https://www.virtualbox.org/).
 
+- Open VirtualBox, select File-Import Appliance, and import the VM image.
 
+- Make sure you have 200 GB free disk space, setting your VM accordingly, and select import.
+
+![](./imgs/appliance-settings.png)
+
+- Start and login VM.
+  - username: `ubuntu`
+  - password: `ubuntu`
+
+- Open terminal.
+
+- `cd solythesis-artifact`
 
 
 ## Experiments
 
-- To use solythesis compiler, go to `solythesis` folder and read the `README.md` file. 
+- To use solythesis compiler, go to `solythesis` folder and read the `README.md` file.
 
-- To reproduce our experiments run 
+- To reproduce our experiments run
 
-`python3 ./run.py` and follows the instructions.
+- `python3 ./run.py` and follows the instructions:
+
+  - Select the contract to deploy
+  - Select the type of instrumentation.
+  - Select which type of experiment to run.
+  - Select the number of blocks to generate (Note large block number may require lots of time to process).
+
+  - The statics will be shown after the script finishes.
+
+  [![asciicast](https://asciinema.org/a/YlqfCidADXBNoV2T9ouUAcrgf.svg)](https://asciinema.org/a/YlqfCidADXBNoV2T9ouUAcrgf)
+
+
 
 ## Caveats
 

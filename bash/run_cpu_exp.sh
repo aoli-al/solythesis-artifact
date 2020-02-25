@@ -9,8 +9,8 @@ cd ~
 
 echo "Copy fullnode folder... (this may take couple minutes)"
 
-rsync -avh --delete --info=progress2 ~/fullnode/ ~/fullnode
-rsync -avh --delete --info=progress2 ~/fullnode/ ~/import
+rsync -avh --delete --info=progress2 ~/fullnode_bak/ ~/fullnode
+rsync -avh --delete --info=progress2 ~/fullnode_bak/ ~/import
 
 $BASE/parity/target/release/parity --accounts-refresh=0 \
    --fast-unlock --no-warp --no-consensus --config \
