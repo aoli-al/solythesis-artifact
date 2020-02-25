@@ -4,6 +4,8 @@ import os
 import glob
 import inquirer
 import subprocess
+import pandas as pd
+import numpy as np
 
 F_DIR = os.path.dirname(os.path.realpath(__file__))
 CONTRACT_DIR = os.path.join(F_DIR, 'contracts') 
@@ -38,7 +40,8 @@ suffix_mapping = {
     "Baseline": "_baseline"
 }
 
-contract = os.path.join(CONTRACT_DIR, configs['contract'] + suffix_mapping[configs['type']] + ".sol")
+contract_name = configs['contract'] + suffix_mapping[configs['type']] + ".sol"
+contract = os.path.join(CONTRACT_DIR, contract_name)
 script = os.path.join(SCRIPT_DIR, 'replay_' + configs['contract'].split("_")[-1].lower() + '.py')
 
 if 'Transaction' in configs['exp']:
@@ -58,9 +61,27 @@ print("Contract: " + configs['contract'])
 print("Instrumentation Type: " + configs['type'])
 
 if 'Transaction' in configs['exp']:
-    print("TPS: " + )
+    with open("/home/ubuntu/results/{}-{}.log".format(contract_name, configs['blocks'])) as f:
+        for line in f:
+            result = re.findall(r"Import completed in .+ (\d+) tx/s", line)
+            if result:
+                tps = result[0]
+                break
+
+    print("TPS: {} tx/s".format(tps))
 else:
-    shell = F_DIR + '/bash/run_cpu_exp.sh'
+    with open("/home/ubuntu/results/{}-{}.db.txt".format(contract_name, configs['blocks'])) as f:
+        for line in f:
+            result = re.findall(r"rocksdb\.bytes\.written COUNT : (\d*)", line)
+            if result:
+                writes = int(result[0]) / 1024 / 1024 / int(configs['blocks']) / 10
+                break
+        print("DB Writes: {} MB/s".format(writes))
+
+        res = pd.read_csv("/home/ubuntu/results/{}-{}.cpu.txt".format(contract_name, configs['blocks']), sep="\s+", header=None, dtype=np.float64, skiprows=1)
+        res = res[[1]]
+        mean = np.mean(res).values[0]
+        print("Average CPU Usage: {}%".format(mean))
 
 
 
