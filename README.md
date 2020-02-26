@@ -42,6 +42,9 @@ Solythesis will generate two instrumented Vote contracts in `./contracts` folder
 Section 5 are also enabled.
 
 
+### Experiments
+
+
 - To reproduce our experiments run
 
 - `python3 ./run.py` and follows the instructions:
@@ -56,6 +59,44 @@ Section 5 are also enabled.
   [![asciicast](https://asciinema.org/a/YlqfCidADXBNoV2T9ouUAcrgf.svg)](https://asciinema.org/a/YlqfCidADXBNoV2T9ouUAcrgf)
 
 
+#### Experiment 6.2
+
+To reproduce the experiment shown in 6.2:
+
+- Select any contract.
+- Select instrumentation type `Origin`.
+- Select `CPU/Disk Usage (6.2)`
+- Type 500 for blocks to generate.
+
+Wait for 5000 seconds (one block generated every 10 seconds) and
+record the average CPU usage and average disk writes per-second.
+
+- Re-do the experiment and Select the instrumentation type `Solythesis`.
+
+You should see the CPU usage and average disk writes for
+both instrumented contract and origin contract are low.
+
+#### Experiment 6.3
+
+To reproduce the experiment shown in 6.3:
+
+- Select any contract.
+- Select instrumentation type `Origin`.
+- Select `CPU/Disk Usage (6.2)`
+- Type 500 for blocks to generate (for more accurate data, you
+may type higher number, but it will take more time to generate).
+
+After the experiment finishes, record the TPS number.
+
+- Re-do the experiment and Select the instrumentation type `Solythesis` and `Baseline`.
+
+Parity can process most transactions for Origin contracts, slightly fewer transactions
+for contracts with incremental instrumentation, and least transactions for contracts
+with baseline instrumentation.
+
+Note:  You may decrease the number of blocks to generate when
+parity performs slow while processing transactions for contracts with baseline
+instrumentation.
 
 ## Caveats
 
