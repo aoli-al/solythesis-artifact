@@ -75,6 +75,9 @@ record the average CPU usage and average disk writes per-second.
 
 You should see the CPU usage and average disk writes for
 both instrumented contract and origin contract are low.
+Low CPU usage and disk writes indicate that the consensus protocol is the
+bottleneck of the current Ethereum blockchain system.
+
 
 #### Experiment 6.3
 
