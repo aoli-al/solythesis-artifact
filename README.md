@@ -1,4 +1,4 @@
-## Start
+## Getting Started Guide
 
 - To evaluate Solythesis, please download our pre-configured [VM image](./) and [VirtualBox](https://www.virtualbox.org/).
 
@@ -17,7 +17,7 @@
 - `cd solythesis-artifact`
 
 
-## Experiments
+## Step-by-Step
 
 ### Generate Instrumented Contracts
 
