@@ -3,11 +3,14 @@ import csv
 import progressbar
 import argparse
 from bench import Bench
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('endpoint')
 parser.add_argument('iter', type=int)
-parser.add_argument('csv')
+#  parser.add_argument('csv')
 parser.add_argument('path')
 parser.add_argument('key1')
 parser.add_argument('key2')
@@ -17,22 +20,25 @@ args = parser.parse_args()
 
 ITER = args.iter
 
-if 'erc20' in args.csv:
+if 'ERC20' in args.path:
     contract_name = 'BecToken'
     origin_creator = "0x36642d20f2E288f18A9a21b544AA853C594DD312"
     NUM_OF_CONTRACT = 100
     constructor_args = []
+    csv_path = os.path.join(dir_path, 'data', 'erc20.csv')
 else:
     contract_name = 'DozerDoll'
     origin_creator = "0x6f53E6F92E85C084E10AAf35D4A44DEE6a27892d"
     constructor_args = ["a", "b"]
     NUM_OF_CONTRACT = 100
+    csv_path = os.path.join(dir_path, 'data', 'erc721.csv')
+
 
 
 bench = Bench(args.endpoint, args.path, contract_name, args.pow)
 contract_creator = bench.import_account(args.key1)
 
-with open(args.csv) as f:
+with open(csv_path) as f:
     reader = csv.DictReader(f)
     transactions = list(reader)
 
