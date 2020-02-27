@@ -14,6 +14,8 @@
 
 - Open terminal.
 
+- Run bootstrap script `./bootstrap.sh`
+
 - `cd solythesis-artifact`
 
 
@@ -66,7 +68,7 @@ To reproduce the experiment shown in 6.2:
 - Select any contract.
 - Select instrumentation type `Origin`.
 - Select `CPU/Disk Usage (6.2)`
-- Type 500 for blocks to generate.
+- Generate 500 blocks.
 
 Wait for 5000 seconds (one block generated every 10 seconds) and
 record the average CPU usage and average disk writes per-second.
@@ -86,7 +88,7 @@ To reproduce the experiment shown in 6.3:
 - Select any contract.
 - Select instrumentation type `Origin`.
 - Select `CPU/Disk Usage (6.2)`
-- Type 500 for blocks to generate (for more accurate data, you
+- Generate 500 blocks (In order to obtain more accurate data, you
 may type higher number, but it will take more time to generate).
 
 After the experiment finishes, record the TPS number.
