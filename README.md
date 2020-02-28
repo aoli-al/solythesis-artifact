@@ -2,7 +2,7 @@
 
 - To evaluate Solythesis, please download our pre-configured [VM image](https://drive.google.com/file/d/1OaQetPXi7yu-RJ4fjwpIimudzt8tCF9d/view?usp=sharing) and [VirtualBox](https://www.virtualbox.org/).
 
-- Open VirtualBox, select File-Import Appliance, and import the VM image.
+- Open VirtualBox, select File->Import Appliance, and import the VM image.
 
 - Make sure you have 200 GB free disk space, setting your VM accordingly, and select import.
 
