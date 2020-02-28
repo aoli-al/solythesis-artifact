@@ -4,7 +4,7 @@
 
 - Open VirtualBox, select File->Import Appliance, and import the VM image.
 
-- Make sure you have 200 GB free disk space
+- Make sure you have 250 GB free disk space
 - In `Appliance settings`:
   - CPU: 4
   - RAM 8192/4096 MB
@@ -115,3 +115,5 @@ instrumentation.
 - If you cancel the experiments, make sure you kill all parity process before running other experiments.
 
 - Don't run multiple experiments at the same time.
+
+- If you do not have sufficient storage, then you may encounter this error when importing the image: `Result Code: NS_ERROR_INVALID_ARG (0x80070057)`. Please make sure you have at least 250 GB (200 GB for the VM instance, and 50 GB for the image) and try importing again. 
