@@ -45,14 +45,12 @@ with open(csv_path) as f:
 bench.address_mapping(origin_creator, contract_creator[0])
 print('creator: ' + contract_creator[0])
 
-idx = 0
-for idx in range(10000):
+for idx in range(ITER):
     transaction = transactions[idx]
     if int(transaction['status']) == 0:
         continue
     new = bench.address_mapping(transaction['from'])
     bench.transfer(contract_creator[0], new, 100000000000000, contract_creator[1])
-    idx += 1
 
 contract_address = [bench.call_contract_function(contract_creator[0], 'constructor', constructor_args,
                                                  private_key=contract_creator[1], wait=True)
