@@ -93,7 +93,7 @@ To reproduce the experiment shown in 6.3:
 - Select any contract.
 - Select instrumentation type `Origin`.
 - Select `CPU/Disk Usage (6.2)`
-- Generate 500 blocks (In order to obtain more accurate data, you
+- Generate 2000 blocks (In order to obtain more accurate data, you
 may type higher number, but it will take more time to generate).
 
 After the experiment finishes, record the TPS number.
