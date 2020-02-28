@@ -4,9 +4,13 @@
 
 - Open VirtualBox, select File->Import Appliance, and import the VM image.
 
-- Make sure you have 200 GB free disk space, setting your VM accordingly, and select import.
+- Make sure you have 200 GB free disk space
+- In `Appliance settings`:
+  - CPU: 4
+  - RAM 8192/4096 MB
+  - Click Import
 
-![](./imgs/appliance-settings.png)
+![](http://www.cs.toronto.edu/~leo/appliance-settings.png)
 
 - Start and login VM.
   - username: `ubuntu`
@@ -43,6 +47,7 @@ Solythesis will generate two instrumented Vote contracts in `./contracts` folder
 - `ERC1202_VOTE_Solythesis.sol`: the secured smart contract using delta update. Note the optimizations described in
 Section 5 are also enabled.
 
+[![asciicast](https://asciinema.org/a/mHimX89JzZ0Cz7hGAhULFa4gH.svg)](https://asciinema.org/a/mHimX89JzZ0Cz7hGAhULFa4gH)
 
 ### Experiments
 
