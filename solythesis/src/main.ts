@@ -6,11 +6,11 @@ import { SolidityParser } from "./antlr/SolidityParser"
 import { ConstraintBuilder } from "./constraints/ConstraintBuilder"
 import { QuantityExp } from "./constraints/nodes/Node"
 import { AssertionDectorator } from "./constraints/AssertionVarDecorator"
-import { GenStateVariables as StateVariableGenerator } from "./constraints/StateVariableGenerator"
+import { GenStateVariables as StateVariableGenerator, arraySize } from "./constraints/StateVariableGenerator"
+import { Printer } from "./printer/Printer"
 import { VariableCollector } from "./visitors/VariableCollector"
 import { ConstraintsCollector } from "./constraints/ConstraintsCollector"
 import { StandardSemanticAnalyzer } from "./analyzer/SemanticAnalyzer"
-import { Printer } from "./printer/printer"
 
 function generate(contractPath: string, constraintPath: string,
                   postfix: string, stateVarOpt: boolean, forallOpt: boolean, baseline: boolean = false) {
@@ -19,7 +19,6 @@ function generate(contractPath: string, constraintPath: string,
   const ast = parser.parse(contract.toString("utf-8"), { range: true })
   const variableCollector = new VariableCollector()
   visit(ast, variableCollector)
-  
 
   const inputStream = new ANTLRInputStream(constraint.toString("utf-8"))
   const lexer = new SolidityLexer(inputStream)
@@ -65,7 +64,8 @@ function generate(contractPath: string, constraintPath: string,
   const newAst = parser.parse(contract.toString("utf-8"), { range: true })
   const decoratorRound2 =
     new AssertionDectorator(constraints, constraintsCollector.functionConstraints,
-      stateVars, semanticAnalyzer.contractVars, stateVarOpt, forallOpt, baseline)
+      stateVars, semanticAnalyzer.contractVars, stateVarOpt,
+      forallOpt, baseline, stateVarGen.dynamicArrays * (arraySize + 1))
   decoratorRound2.visit(newAst)
 
   const printer = new Printer(contract.toString("utf-8"))
@@ -80,7 +80,7 @@ function generate(contractPath: string, constraintPath: string,
 
 }
 
-generate(process.argv[2], process.argv[3], "Solythesis_baseline", false, false, true)
-generate(process.argv[2], process.argv[3], "Solythesis", true, true)
+generate(process.argv[2], process.argv[3], "_baseline", false, false, true)
+generate(process.argv[2], process.argv[3], "_Solythesis", true, true)
 
 console.log("finished")
