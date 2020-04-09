@@ -4,3 +4,7 @@
 [submodule "surya"]
 	path = surya
 	url = https://github.com/ConsenSys/surya
+[submodule "Solythesis"]
+	path = Solythesis
+	url = https://github.com/Leeleo3x/Solythesis
+	branch = master
