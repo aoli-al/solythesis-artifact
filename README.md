@@ -1,6 +1,6 @@
 ## Getting Started Guide
 
-- To evaluate Solythesis, please download our pre-configured [VM image](https://drive.google.com/open?id=1W353b2JmJjUh6sktC8rJC8oaVMmnN9O0) and [VirtualBox](https://www.virtualbox.org/).
+- To evaluate Solythesis, ~~please download our pre-configured [VM image](https://drive.google.com/open?id=1W353b2JmJjUh6sktC8rJC8oaVMmnN9O0) and [VirtualBox](https://www.virtualbox.org/)~~. Sorry the pre-built VM image is missing. 
 
 - Open VirtualBox, select File->Import Appliance, and import the VM image.
 
